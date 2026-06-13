@@ -39,6 +39,7 @@ public class Level2 {
 	
 	ArrayList<Integer> valueRepeat(int[] x){
 		
+		
 		ArrayList<Integer> arrs=new ArrayList<>();
 		int[] arr=x;
 
@@ -58,7 +59,34 @@ public class Level2 {
 		return arrs;
 		
 	}
-	
+//9
+	ArrayList<Integer> subarray(int[] s){
+		ArrayList<Integer> list=new ArrayList<>();
+		int[] nums =s;
+		
+		int maxlen=1;
+		int curentlen=1;
+		
+		int start=0;
+		int maxstart=0;
+		
+		for(int i=1;i<nums.length;i++) {
+			if(nums[i]>nums[i-1] ){
+				curentlen++;	
+			}else {
+				curentlen=1;
+				start=i;
+			}
+			if(curentlen>maxlen) {
+				maxlen=curentlen;
+				maxstart=start;
+			}
+		}
+		for(int i=maxstart;i<maxstart+maxlen;i++) {
+			list.add(nums[i]);
+		}
+		return list;
+	}
 	public static void main(String[] args) {
 		Basics line=new Basics();
 		Level2 obj=new Level2();
@@ -101,6 +129,7 @@ public class Level2 {
 	        }
 	  
 	        System.out.println("Third largest number of the Array is :"+s3);
+	        line.line();
 //3)palindrome
 		System.out.println("Write a program to find out if the given string (ignore the spaces in the string) is palindrome or not.\n");
 		
@@ -138,7 +167,6 @@ public class Level2 {
 		
 		System.out.println();
 		line.line();
-		System.out.println("hgygsdjbdsjk");
 		
 //5)sort the elements in odd positions in descending order and elements in even positions in ascending order;
 		
@@ -160,6 +188,9 @@ public class Level2 {
 			System.out.println(arr[i]);	
 		}
 		
+		
+		line.line();
+		
 //6)
 		 System.out.println("Write a program to remove all occurrences of a given character from input String.\n");
 		 System.out.println(obj.occurrences("ABCabc", "a"));
@@ -174,6 +205,7 @@ public class Level2 {
 		 System.out.println(obj.valueRepeat(new int[] {1, 1}).isEmpty()? "{} -\\\" No value Repeat\\\"":obj.valueRepeat(new int[] {1, 1}));
 		 
 		 
+		 line.line();
 		 
 //8)find indexvalue		
 		 
@@ -182,6 +214,14 @@ public class Level2 {
 		 System.out.println(obj.indexvalue(new int[] {10, 22, 33, 25, 32, 54, 64, 1},100));
 
 		 line.line();
+		
+//9.Find the longest increasing sub-array in array.
+		
+		 System.out.println("Find the longest increasing sub-array in array .");
+		System.out.println(obj.subarray(new int[] {1, 5, 3, 7}));
+		System.out.println(obj.subarray(new int[] {10, 22, 33, 25, 32, 54, 64, 1}));
+		
+		
 		io.close();
 	}
 }
