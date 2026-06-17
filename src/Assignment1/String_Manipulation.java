@@ -1,4 +1,4 @@
-package Assignment;
+package Assignment1;
 import java.util.*;
 public class String_Manipulation{
 	

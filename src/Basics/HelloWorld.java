@@ -1,4 +1,4 @@
-package Clint;
+package Basics;
 class HelloWorld
 {
 	public static void main(String args[])
